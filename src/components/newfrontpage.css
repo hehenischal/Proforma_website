@@ -1,0 +1,413 @@
+/* ================= SERVICE HERO SPLIT SECTION ================= */
+
+.service-hero {
+  width: 100%;
+  min-height: 520px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background: #0a0a1a;
+  margin-top: 0;
+}
+
+/* ── Shared panel styles ── */
+.service-hero__panel {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: default;
+  transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-hero__panel:hover {
+  flex: 1.15;
+}
+
+/* Background canvas container */
+.service-hero__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Dark overlay per panel — very subtle so particles + text both shine */
+.service-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  transition: background 0.5s ease;
+  pointer-events: none;
+}
+
+.service-hero__panel--accounting {
+  background: linear-gradient(135deg, #020824 0%, #0a1a3f 100%);
+}
+
+.service-hero__panel--accounting .service-hero__overlay {
+  background: linear-gradient(135deg, rgba(0,30,80,0.35) 0%, rgba(0,50,120,0.2) 100%);
+}
+
+.service-hero__panel--accounting:hover .service-hero__overlay {
+  background: linear-gradient(135deg, rgba(0,30,80,0.25) 0%, rgba(0,50,120,0.1) 100%);
+}
+
+.service-hero__panel--it {
+  background: linear-gradient(135deg, #020820 0%, #071e3d 100%);
+}
+
+.service-hero__panel--it .service-hero__overlay {
+  background: linear-gradient(135deg, rgba(5,15,50,0.35) 0%, rgba(0,40,100,0.2) 100%);
+}
+
+.service-hero__panel--it:hover .service-hero__overlay {
+  background: linear-gradient(135deg, rgba(5,15,50,0.25) 0%, rgba(0,40,100,0.1) 100%);
+}
+
+/* ── Content ── */
+.service-hero__content {
+  position: relative;
+  z-index: 3;
+  padding: 50px 45px;
+  max-width: 540px;
+  color: #fff;
+}
+
+/* Tag / eyebrow */
+.service-hero__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: shTagIn 0.6s 0.2s ease forwards;
+}
+
+@keyframes shTagIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.service-hero__tag svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Title */
+.service-hero__title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  letter-spacing: -0.5px;
+  opacity: 0;
+  transform: translateY(22px);
+  animation: shTitleIn 0.7s 0.35s ease forwards;
+}
+
+@keyframes shTitleIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Description */
+.service-hero__desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.82);
+  margin: 0 0 28px;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: shDescIn 0.7s 0.5s ease forwards;
+}
+
+@keyframes shDescIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Feature pills */
+.service-hero__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: shFeatIn 0.6s 0.65s ease forwards;
+}
+
+@keyframes shFeatIn {
+  to { opacity: 1; }
+}
+
+.service-hero__feature {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.service-hero__feature:hover {
+  background: rgba(255,255,255,0.16);
+  border-color: rgba(255,255,255,0.3);
+}
+
+.service-hero__feature svg {
+  width: 14px;
+  height: 14px;
+  color: #60a5fa;
+  flex-shrink: 0;
+}
+
+.service-hero__panel--it .service-hero__feature svg {
+  color: #38bdf8;
+}
+
+/* Buttons row */
+.service-hero__buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: shBtnIn 0.6s 0.8s ease forwards;
+}
+
+@keyframes shBtnIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.service-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.service-hero__btn svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.service-hero__btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Primary button */
+.service-hero__btn--primary {
+  background: #fff;
+  color: #0052a3;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.service-hero__btn--primary:hover {
+  background: #e6f2ff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+/* Secondary / outline button */
+.service-hero__btn--secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.35);
+}
+
+.service-hero__btn--secondary:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.6);
+  transform: translateY(-3px);
+}
+
+/* ── Centre divider ── */
+.service-hero__divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-hero__divider-line {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255,255,255,0.35) 20%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0.35) 80%,
+    transparent 100%
+  );
+}
+
+.service-hero__divider-icon {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  animation: shDividerPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes shDividerPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.2); }
+  50% { box-shadow: 0 0 0 12px rgba(255,255,255,0); }
+}
+
+.service-hero__divider-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .service-hero {
+    min-height: 460px;
+  }
+
+  .service-hero__content {
+    padding: 40px 35px;
+  }
+
+  .service-hero__title {
+    font-size: 1.85rem;
+  }
+
+  .service-hero__desc {
+    font-size: 0.9rem;
+    margin-bottom: 22px;
+  }
+
+  .service-hero__features {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-hero {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .service-hero__panel {
+    min-height: 420px;
+  }
+
+  .service-hero__panel:hover {
+    flex: 1;
+  }
+
+  .service-hero__content {
+    padding: 45px 30px;
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .service-hero__features {
+    justify-content: center;
+  }
+
+  .service-hero__buttons {
+    justify-content: center;
+  }
+
+  /* Divider goes horizontal */
+  .service-hero__divider {
+    top: auto;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 3px;
+    flex-direction: row;
+  }
+
+  .service-hero__divider-line {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255,255,255,0.35) 20%,
+      rgba(255,255,255,0.5) 50%,
+      rgba(255,255,255,0.35) 80%,
+      transparent 100%
+    );
+  }
+}
+
+@media (max-width: 480px) {
+  .service-hero__panel {
+    min-height: 380px;
+  }
+
+  .service-hero__content {
+    padding: 35px 22px;
+  }
+
+  .service-hero__title {
+    font-size: 1.55rem;
+  }
+
+  .service-hero__desc {
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+  }
+
+  .service-hero__feature {
+    font-size: 0.78rem;
+    padding: 5px 10px;
+  }
+
+  .service-hero__btn {
+    padding: 10px 22px;
+    font-size: 0.85rem;
+  }
+
+  .service-hero__divider-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
