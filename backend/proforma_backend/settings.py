@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-gpovc6d6u42wdpt**vr6orh-3hdvmw!(cd$=hj)&kp*!==@$j_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.proformainsights.com','proformainsights.com','164.68.114.81']
 
 
 # Application definition
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'proforma_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,7 +134,18 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:5173', 'http://127.0.0.1:5173']
+# CORS_ALLOWED_ORIGINS = ['http://localhost:5173', 'http://127.0.0.1:5173','http://proformainsights.com','https://proformainsights.com']
+
+CORS_ALLOWED_ORIGINS = [
+    "https://www.proformainsights.com",
+    "https://proformainsights.com",
+]
+
+# If you are using CSRF (for logins/forms)
+CSRF_TRUSTED_ORIGINS = [
+    "https://www.proformainsights.com",
+    "https://proformainsights.com",
+]
 CORS_ALLOW_CREDENTIALS = True
 
 REST_FRAMEWORK = {'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.AllowAny'], 'PAGE_SIZE': 10}
