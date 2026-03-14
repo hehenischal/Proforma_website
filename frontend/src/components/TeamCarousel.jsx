@@ -40,11 +40,11 @@ export const TeamCarousel = () => {
               <div key={`${member.id}-${index}`} className="team-card">
                 <div className="team-card-image-wrapper">
                   <img
-                    src={member.image || 'http://localhost:8000/media/team/default_profile.png'}
+                    src={member.image || 'https://www.proformainsights.com/media/team/default_profile.png'}
                     alt={member.name}
                     className="team-card-image"
                     onError={(e) => {
-                      e.target.src = 'http://localhost:8000/media/team/default_profile.png';
+                      e.target.src = 'https://www.proformainsights.com/media/team/default_profile.png';
                     }}
                   />
                 </div>
