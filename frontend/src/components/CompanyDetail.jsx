@@ -45,7 +45,7 @@ export const CompanyDetail = () => {
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/proforma-cards/');
+        const response = await fetch('https://www.proformainsights.com/api/proforma-cards/');
         const data = await response.json();
         setCompanyCards(data);
         setLoading(false);

@@ -1,5 +1,5 @@
 // API configuration and service functions
-const API_BASE_URL = 'http://localhost:8000/api';
+const API_BASE_URL = 'https://www.proformainsights.com/api';
 
 // Generic fetch function with error handling
 const fetchAPI = async (endpoint) => {
