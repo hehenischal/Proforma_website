@@ -27,7 +27,7 @@ export const Team = () => {
             image: member.image ? (
               member.image.startsWith('http') 
                 ? member.image 
-                : `http://localhost:8000${member.image}`
+                : `https://www.proformainsights.com/${member.image}`
             ) : "https://via.placeholder.com/400",
             email: member.email,
             phone: member.phone,
